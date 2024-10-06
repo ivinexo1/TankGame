@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=3 uid="uid://3xne0sh4vb2s"]
+
+[ext_resource type="Texture2D" uid="uid://br76o4ajg81aj" path="res://Textures/pixil-frame-0.png" id="1_ac4yg"]
+[ext_resource type="Script" path="res://Scripts/Panel.gd" id="1_rtbmf"]
+[ext_resource type="Script" path="res://Scripts/TurretB.gd" id="2_u56dg"]
+[ext_resource type="Texture2D" uid="uid://tbjn3r355lgk" path="res://Textures/pixil-frame-0 (1).png" id="4_0hh2y"]
+[ext_resource type="Script" path="res://Scripts/Default.gd" id="4_nnt38"]
+[ext_resource type="Script" path="res://Scripts/CannonB.gd" id="4_oautt"]
+[ext_resource type="Texture2D" uid="uid://bh1l0dxi67b2l" path="res://Textures/pixil-frame-0 (2).png" id="5_54t1e"]
+[ext_resource type="Script" path="res://Scripts/Default Cannon.gd" id="6_t2pte"]
+
+[node name="Game scene" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 128.0
+script = ExtResource("1_rtbmf")
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 107.0
+offset_bottom = 83.0
+text = "exit
+"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 992.0
+offset_top = 56.0
+offset_right = 1032.0
+offset_bottom = 79.0
+text = "1
+"
+
+[node name="TurretB" type="Node" parent="Panel"]
+script = ExtResource("2_u56dg")
+
+[node name="TButtonSub" type="TextureButton" parent="Panel/TurretB"]
+offset_left = 96.0
+offset_top = 272.0
+offset_right = 170.0
+offset_bottom = 349.0
+scale = Vector2(1.52, 1.56)
+texture_normal = ExtResource("4_0hh2y")
+stretch_mode = 0
+flip_h = true
+
+[node name="TButtomAdd" type="TextureButton" parent="Panel/TurretB"]
+offset_left = 992.0
+offset_top = 304.0
+offset_right = 1066.0
+offset_bottom = 376.0
+scale = Vector2(1.52, 1.56)
+texture_normal = ExtResource("4_0hh2y")
+stretch_mode = 0
+
+[node name="CannonB" type="Node" parent="Panel"]
+script = ExtResource("4_oautt")
+
+[node name="CButtomAdd" type="TextureButton" parent="Panel/CannonB"]
+offset_left = 992.0
+offset_top = 176.0
+offset_right = 1066.0
+offset_bottom = 248.0
+scale = Vector2(1.52, 1.56)
+texture_normal = ExtResource("4_0hh2y")
+stretch_mode = 0
+
+[node name="CButtomSub" type="TextureButton" parent="Panel/CannonB"]
+offset_left = 88.0
+offset_top = 160.0
+offset_right = 162.0
+offset_bottom = 232.0
+scale = Vector2(1.52, 1.56)
+texture_normal = ExtResource("4_0hh2y")
+stretch_mode = 0
+flip_h = true
+
+[node name="Turrets" type="Node" parent="."]
+
+[node name="Default" type="Sprite2D" parent="Turrets"]
+position = Vector2(424, 296)
+scale = Vector2(6, 6)
+texture = ExtResource("1_ac4yg")
+script = ExtResource("4_nnt38")
+
+[node name="Cannon" type="Node" parent="."]
+
+[node name="Default Cannon" type="Sprite2D" parent="Cannon"]
+position = Vector2(712, 368)
+scale = Vector2(6, 6)
+texture = ExtResource("5_54t1e")
+script = ExtResource("6_t2pte")
+
+[connection signal="pressed" from="Panel/Button" to="Panel" method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/TurretB/TButtonSub" to="Panel/TurretB" method="_on_t_button_sub_pressed"]
+[connection signal="pressed" from="Panel/TurretB/TButtomAdd" to="Panel/TurretB" method="_on_t_buttom_add_pressed"]
+[connection signal="pressed" from="Panel/CannonB/CButtomAdd" to="Panel/CannonB" method="_on_c_buttom_add_pressed"]
+[connection signal="pressed" from="Panel/CannonB/CButtomSub" to="Panel/CannonB" method="_on_c_buttom_sub_pressed"]
