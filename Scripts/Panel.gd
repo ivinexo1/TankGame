@@ -8,7 +8,7 @@ func _ready():
 
 
 func _process(_delta):
-	label.text = str(Variable.turretch) + " " + str(Variable.cannno)
+	label.text = str(Variable.turretch) + " " + str(Variable.cannno) + " " + str(Variable.cascet)
 
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://3xne0sh4vb2s"]
+[gd_scene load_steps=12 format=3 uid="uid://3xne0sh4vb2s"]
 
 [ext_resource type="Texture2D" uid="uid://br76o4ajg81aj" path="res://Textures/pixil-frame-0.png" id="1_ac4yg"]
 [ext_resource type="Script" path="res://Scripts/Panel.gd" id="1_rtbmf"]
@@ -7,7 +7,10 @@
 [ext_resource type="Script" path="res://Scripts/Default.gd" id="4_nnt38"]
 [ext_resource type="Script" path="res://Scripts/CannonB.gd" id="4_oautt"]
 [ext_resource type="Texture2D" uid="uid://bh1l0dxi67b2l" path="res://Textures/pixil-frame-0 (2).png" id="5_54t1e"]
+[ext_resource type="Script" path="res://Scripts/CascetB.gd" id="5_qd4hd"]
 [ext_resource type="Script" path="res://Scripts/Default Cannon.gd" id="6_t2pte"]
+[ext_resource type="Texture2D" uid="uid://e71w381ukw4w" path="res://Textures/pixil-frame-0 (5).png" id="10_0qeaa"]
+[ext_resource type="Script" path="res://Scripts/Default Cascet.gd" id="11_mh4p5"]
 
 [node name="Game scene" type="Node2D"]
 
@@ -78,10 +81,32 @@ texture_normal = ExtResource("4_0hh2y")
 stretch_mode = 0
 flip_h = true
 
+[node name="CascetB" type="Node" parent="Panel"]
+script = ExtResource("5_qd4hd")
+
+[node name="CsButtomAdd" type="TextureButton" parent="Panel/CascetB"]
+offset_left = 992.0
+offset_top = 408.0
+offset_right = 1066.0
+offset_bottom = 480.0
+scale = Vector2(1.52, 1.56)
+texture_normal = ExtResource("4_0hh2y")
+stretch_mode = 0
+
+[node name="CsButtomSub" type="TextureButton" parent="Panel/CascetB"]
+offset_left = 88.0
+offset_top = 392.0
+offset_right = 162.0
+offset_bottom = 464.0
+scale = Vector2(1.52, 1.56)
+texture_normal = ExtResource("4_0hh2y")
+stretch_mode = 0
+flip_h = true
+
 [node name="Turrets" type="Node" parent="."]
 
 [node name="Default" type="Sprite2D" parent="Turrets"]
-position = Vector2(424, 296)
+position = Vector2(432, 200)
 scale = Vector2(6, 6)
 texture = ExtResource("1_ac4yg")
 script = ExtResource("4_nnt38")
@@ -89,13 +114,23 @@ script = ExtResource("4_nnt38")
 [node name="Cannon" type="Node" parent="."]
 
 [node name="Default Cannon" type="Sprite2D" parent="Cannon"]
-position = Vector2(712, 368)
+position = Vector2(720, 272)
 scale = Vector2(6, 6)
 texture = ExtResource("5_54t1e")
 script = ExtResource("6_t2pte")
+
+[node name="Cascet" type="Node" parent="."]
+
+[node name="Default Cascet" type="Sprite2D" parent="Cascet"]
+position = Vector2(576, 424)
+scale = Vector2(6, 6)
+texture = ExtResource("10_0qeaa")
+script = ExtResource("11_mh4p5")
 
 [connection signal="pressed" from="Panel/Button" to="Panel" method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/TurretB/TButtonSub" to="Panel/TurretB" method="_on_t_button_sub_pressed"]
 [connection signal="pressed" from="Panel/TurretB/TButtomAdd" to="Panel/TurretB" method="_on_t_buttom_add_pressed"]
 [connection signal="pressed" from="Panel/CannonB/CButtomAdd" to="Panel/CannonB" method="_on_c_buttom_add_pressed"]
 [connection signal="pressed" from="Panel/CannonB/CButtomSub" to="Panel/CannonB" method="_on_c_buttom_sub_pressed"]
+[connection signal="pressed" from="Panel/CascetB/CsButtomAdd" to="Panel/CascetB" method="_on_cs_buttom_add_pressed"]
+[connection signal="pressed" from="Panel/CascetB/CsButtomSub" to="Panel/CascetB" method="_on_cs_buttom_sub_pressed"]

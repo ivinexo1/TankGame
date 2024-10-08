@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@onready var default = $"."
+@onready var default_cascet = $"."
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,7 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(Variable.turretch == 1):
-		default.show()
+	if(Variable.cascet == 1):
+		default_cascet.show()
 	else:
-		default.hide()
+		default_cascet.hide()
