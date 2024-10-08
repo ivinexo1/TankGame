@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4qpokdgooyum"]
+
+[ext_resource type="Texture2D" uid="uid://br76o4ajg81aj" path="res://Textures/pixil-frame-0.png" id="1_qgy0w"]
+[ext_resource type="Texture2D" uid="uid://bh1l0dxi67b2l" path="res://Textures/pixil-frame-0 (2).png" id="2_74lar"]
+[ext_resource type="Texture2D" uid="uid://e71w381ukw4w" path="res://Textures/pixil-frame-0 (5).png" id="3_36s62"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dpxx"]
+atlas = ExtResource("1_qgy0w")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rlxvd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dpxx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ufq8"]
+atlas = ExtResource("2_74lar")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ium40"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ufq8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysd8l"]
+atlas = ExtResource("3_36s62")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0myvy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysd8l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asklu"]
+size = Vector2(146, 129)
+
+[node name="Player" type="Area2D"]
+position = Vector2(-8, 0)
+
+[node name="Turret" type="AnimatedSprite2D" parent="."]
+position = Vector2(264, 64)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_rlxvd")
+
+[node name="Cannon" type="AnimatedSprite2D" parent="."]
+position = Vector2(552, 136)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_ium40")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(400, 288)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_0myvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-120, 160)
+shape = SubResource("RectangleShape2D_asklu")
